@@ -36,4 +36,3 @@ Na execução local, o servidor encerra após aproximadamente 3 minutos sem rece
 ## Materiais e marcas
 
 Fontes, imagens, marcas e artes permanecem com os respectivos titulares. Nenhuma licença geral é atribuída aos materiais de terceiros. Projeto de fã sem vínculo com Rockstar Games ou Take-Two Interactive.
-

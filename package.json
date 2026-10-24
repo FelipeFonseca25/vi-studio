@@ -1,0 +1,15 @@
+{
+  "name": "vi-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gerador de lettering inspirado em GTA VI, local e offline",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs --open",
+    "preview": "node server.mjs",
+    "build:pages": "node scripts/build-pages.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

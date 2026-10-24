@@ -1,0 +1,3 @@
+/* Interface personalizada: sem feedback e sem cartão de perfil. */
+header button[aria-label="Feedback"],
+nav[aria-label="Author links"] { display: none !important; }
