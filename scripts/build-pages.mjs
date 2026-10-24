@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {repairFlightTextLengths} from './repair-flight.mjs';
 
 const root=path.resolve(fileURLToPath(new URL('../',import.meta.url)));
 const source=path.join(root,'public');
@@ -35,6 +36,7 @@ function copy(dir,prefix='') {
     text=text.replaceAll('3a4831f05b16ee55/script.js',base+'telemetry-disabled.js').replaceAll('51742b4498e60729/script.js',base+'telemetry-disabled.js').replaceAll('/_vercel/insights/script.js',base+'telemetry-disabled.js').replaceAll('/_vercel/speed-insights/script.js',base+'telemetry-disabled.js');
     if(relative==='index.html')text=text.replaceAll('href="/custom.css"','href="'+base+'custom.css"').replaceAll('href="/manifest.webmanifest"','href="'+base+'manifest.webmanifest"').replaceAll('href="/favicon.ico','href="'+base+'favicon.ico').replaceAll('href="/icon.png','href="'+base+'icon.png').replaceAll('href="/apple-icon.png','href="'+base+'apple-icon.png');
     if(relative==='manifest.webmanifest'){const manifest=JSON.parse(text);manifest.start_url=base;manifest.icons=manifest.icons.map(icon=>({...icon,src:base+icon.src.replace(/^\//,'')}));text=JSON.stringify(manifest);}
+    if(relative==='index.html')text=repairFlightTextLengths(text);
     fs.writeFileSync(dest,text);
   }
 }
